@@ -64,4 +64,5 @@ changement playbook /!\ Indentations /!\
     ping:
 
 Advanced playbook
-
+on ajoute le code donnée sur TP3
+On a maintenant tout bien d'installé

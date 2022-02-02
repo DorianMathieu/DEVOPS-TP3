@@ -1,0 +1,6 @@
+---
+# tasks file for roles/database
+- name: Run database
+  docker_container:
+    name: database
+    image: dorianmat/db

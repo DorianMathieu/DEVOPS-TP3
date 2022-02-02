@@ -1,0 +1,6 @@
+---
+# tasks file for roles/database
+- name: Run api
+  docker_container:
+    name: api
+    image: dorianmat/sapibd
