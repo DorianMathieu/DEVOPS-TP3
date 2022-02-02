@@ -1,0 +1,57 @@
+TD3
+
+connection
+ssh -i ClePrivTP3/id_rsa centos@dorian.mathieu.takima.cloud
+
+add this “centos@” ? Your machines run under a CentOS
+distribution, and the default user is centos, this is why we specify which user we want to
+use.
+
+TP3
+On créé un fichier .yml dans dossier inventories (complété avec les bon chemin et hosts)
+all:
+  vars:
+    ansible_user: centos
+    ansible_ssh_private_key_file: /fs03/share/users/dorian.mathieu/home/Documents/DEVOPS/ClePrivTP3/id_rsa
+  children:
+    prod:
+      hosts: dorian.mathieu.takima.cloud
+
+DEF : --
+these kinds of variables, not set by the user but discovered
+are called facts. Facts are prefixed by ansible_ and represent information derived from
+speaking with your remote systems
+
+On lance la commande suivante pour demander la dostribution OS
+ansible all -i inventories/setup.yml -m setup -a "filter=ansible_distribution*"
+Resulat :
+"ansible_facts": {
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_file_parsed": true, 
+        "ansible_distribution_file_path": "/etc/redhat-release", 
+        "ansible_distribution_file_variety": "RedHat", 
+        "ansible_distribution_major_version": "8", 
+        "ansible_distribution_release": "NA", 
+        "ansible_distribution_version": "8", 
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    }, 
+    "changed": false
+
+pour enlever le serveur apache précedement installé :
+ansible all -i inventories/setup.yml -m yum -a "name=httpd state=absent" --become
+
+
+PLAYBOOKS
+Creation du premier PLAYBOOKS
+- hosts: all
+  gather_facts: false
+  become: yes
+  
+tasks:
+  - name: Test connection
+      ping:
+
+Lancement du playbook avec la commande :
+ansible-playbook -i inventories/setup.yml playbook.yml
+
+
