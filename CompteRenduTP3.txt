@@ -54,4 +54,14 @@ tasks:
 Lancement du playbook avec la commande :
 ansible-playbook -i inventories/setup.yml playbook.yml
 
+changement playbook /!\ Indentations /!\
+- hosts: all
+  gather_facts: false
+  become: yes
+
+	tasks:
+  - name: Test connection
+    ping:
+
+Advanced playbook
 
