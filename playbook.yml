@@ -4,3 +4,7 @@
 # Install Docker
   roles:
   - docker
+  - network
+  - database
+  - app
+  - proxy

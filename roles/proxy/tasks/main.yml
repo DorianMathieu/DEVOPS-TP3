@@ -1,2 +1,11 @@
 ---
-# tasks file for roles/proxy
+# tasks file for roles/database
+- name: Run proxy
+  docker_container:
+    name: proxy
+    image: dorianmat/httpd
+
+    #port :
+    #- 80:80
+    networks: 
+    - name : ntwdo

@@ -3,4 +3,6 @@
 - name: Run database
   docker_container:
     name: database
-    image: dorianmat/db
+    image: dorianmat/database
+    networks: 
+     - name: ntwdo

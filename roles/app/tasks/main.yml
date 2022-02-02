@@ -3,4 +3,6 @@
 - name: Run api
   docker_container:
     name: api
-    image: dorianmat/sapibd
+    image: dorianmat/backend
+    networks: 
+     - name: ntwdo
