@@ -4,8 +4,7 @@
   docker_container:
     name: proxy
     image: dorianmat/httpd
-
-    #port :
-    #- 80:80
+    ports : 80:80
+    state: started
     networks: 
-    - name : ntwdo
+      - name : ntwdo

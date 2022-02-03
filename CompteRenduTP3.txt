@@ -66,3 +66,12 @@ changement playbook /!\ Indentations /!\
 Advanced playbook
 on ajoute le code donnée sur TP3
 On a maintenant tout bien d'installé
+
+créatop, des roles :
+- install docker
+- create network
+- launch database
+- launch app
+- launch proxy
+
+dans chacun des roles on ajoute le 

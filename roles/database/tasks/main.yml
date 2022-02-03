@@ -4,5 +4,11 @@
   docker_container:
     name: database
     image: dorianmat/database
+    state: started
     networks: 
      - name: ntwdo
+    env: 
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+      

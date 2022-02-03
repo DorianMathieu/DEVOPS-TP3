@@ -2,7 +2,9 @@
 # tasks file for roles/database
 - name: Run api
   docker_container:
-    name: api
-    image: dorianmat/backend
+    name: sapibd
+    image: dorianmat/sapibd:1.0
     networks: 
      - name: ntwdo
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/db
